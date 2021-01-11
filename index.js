@@ -60,3 +60,29 @@ function createTimeOutEvent(time) {
     this.timeOutEvents.push(event)
     return this
 }
+
+function hoursWorkedOnDate(record) {
+    let timeIn = this.timeInEvents.find(x => x.date === record)
+    let timeOut = this.timeOutEvents.find(x => x.date === record)
+
+    let hours = (timeOut.hour - timeIn.hour) / 100
+    return hours
+}
+
+function wagesEarnedOnDate(date) {
+    let hours = hoursWorkedOnDate.call(this, date)
+    let wage = this.payPerHour
+    return wage * hours
+}
+
+function calculatePayroll(employees) {
+    let total = 0
+    employees.forEach(employee => {
+         total += allWagesFor.call(employee)
+    })
+    return total
+}
+
+function findEmployeeByFirstName(srcArray, firstName) {
+    return srcArray.find(x => x.firstName === firstName)
+}
